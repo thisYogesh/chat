@@ -2,7 +2,7 @@ const http = require('http')
 const server = http.createServer(function(req, res){
     res.setHeader('content-type', 'text/html')
     res.end(`
-        <h1>Hello Yogesh! Git Connected!</h1>
+        <h1>Hello Yogesh!!</h1>
         <div class='time'></div>
 
         <script>
@@ -11,25 +11,17 @@ const server = http.createServer(function(req, res){
             var el;
 
             ws.onmessage = function (event) {
-            el = document.querySelector('.time')
-            el.innerHTML = event.data;
-        };
+                el = document.querySelector('.time')
+                el.innerHTML = event.data;
+            };
         </script>
     `)
 });
 
-server.listen(process.env.PORT || 3000)
+const PORT = process.env.PORT || 3000
+server.listen(PORT, function(){
+    console.log('Server is listening on PORT ' + PORT)
+})
 
-const { Server } = require('ws');
-
-const wss = new Server({ server });
-wss.on('connection', (ws) => {
-    console.log('WS Client connected');
-    ws.on('close', () => console.log('Client disconnected'));
-});
-
-setInterval(() => {
-    wss.clients.forEach((client) => {
-      client.send(new Date().toTimeString());
-    });
-}, 1000);
+const ws = require('./ws')
+new ws(server)
