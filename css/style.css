@@ -3,12 +3,210 @@
 
 * {
     box-sizing: border-box;
-}
-
-body{
-    font-family: Roboto;
-    font-weight: 400;
     margin: 0;
     padding: 0;
+    border: 0;
+}
+
+body {
+    font-family: Roboto;
+    font-weight: 400;
     list-style: none;
+    cursor: default;
+}
+
+.app {
+    display: flex;
+    background-color: #e2e2e2;
+}
+
+.app-side-main {
+    height: 100vh;
+    width: 22%;
+    background-color: #007aff;
+    color: #fff;
+    border-radius: 0 10px 10px 0;
+    z-index: 1;
+}
+
+.app-main-wrapper{
+    padding: 25px;
+}
+
+.app-main {
+    width: 78%;
+    padding: 9px 9px 9px 0;
+}
+
+.app-main-area {
+    height: 100%;
+    background-color: #fff;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0 0 7px #9c9c9c;
+}
+
+.main-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-actions {
+    display: flex;
+}
+
+.main-copy {
+    font-weight: 500;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.icon-button {
+    background-color: transparent;
+    margin-left: 18px;
+    cursor: pointer;
+    outline: none;
+}
+
+.icon-button svg {
+    vertical-align: middle;
+}
+
+.icon-button--white {
+    color: #fff;
+}
+
+.icon-button-menu svg {
+    height: 20px;
+}
+
+.icon-button-menu {
+    transform: rotate(90deg);
+}
+
+.icon-button-add {
+    font-size: 22px;
+}
+
+.main-search-icon {
+    width: 17px;
+    margin-left: 10px;
+    color: #ffffff91;
+}
+
+.main-search-wrapper {
+    background-color: #ffffff5e;
+    border-radius: 3px;
+    display: flex;
+}
+
+.main-search-input {
+    font-family: Roboto;
+    height: 35px;
+    width: 100%;
+    background-color: transparent;
+    padding-left: 6px;
+    color: #fff;
+    outline: none;
+    appearance: none;
+}
+
+.main-search-input::placeholder {
+    color: #fff;
+}
+
+.main-search {
+    margin-top: 22px;
+}
+
+.main-user {
+    margin-top: 50px;
+}
+
+.main-user-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0 -25px;
+}
+
+.main-user-img {
+    vertical-align: middle;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.main-user-item {
+    display: flex;
+    padding: 12px 25px;
+    position: relative;
+}
+
+.main-user-item:hover {
+    background-color: #ffffff30;
+    cursor: pointer;
+}
+
+.main-user-badge-unread {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    background-color: #fff;
+    color: #007aff;
+    font-style: normal;
+    font-size: 10px;
+    min-width: 14px;
+    height: 14px;
+    text-align: center;
+    line-height: 14px;
+    border-radius: 14px;
+    font-weight: 600;
+    transform: translateY(-50%);
+    padding: 0 3px;
+}
+
+.main-user-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 8px;
+    justify-content: center;
+}
+
+.main-user-name {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.main-user-copy {
+    max-width: 85%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.main-user-status {
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    border-radius: 50%;
+    bottom: 0;
+    right: 0;
+}
+
+.main-user-profile {
+    position: relative;
+}
+
+.main-user-status.--user-offline {
+    background-color: #cacaca;
+}
+
+.main-user-status.--user-active {
+    background-color: #00bd00;
+}
+
+.main-user-badge-unread:empty {
+    opacity: 0;
 }
