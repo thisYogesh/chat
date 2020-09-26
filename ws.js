@@ -33,5 +33,4 @@ ws.prototype.startPolling = function(){
     }, 1000);
 }
 
-
 module.exports = ws

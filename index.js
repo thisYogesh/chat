@@ -6,6 +6,7 @@ const server = http.createServer(function(req, res){
         <div class='time'></div>
 
         <script>
+            // use 'wss' in case of https
             var HOST = location.origin.replace(/^http/, 'ws')
             var ws = new WebSocket(HOST);
             var el;
@@ -23,5 +24,4 @@ server.listen(PORT, function(){
     console.log('Server is listening on PORT ' + PORT)
 })
 
-const ws = require('./ws')
-new ws(server)
+const ws = new require('./ws')(server)

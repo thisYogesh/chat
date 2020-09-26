@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbase</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+        .hide {
+            display: none !important;
+        }
+        .block-area{
+            display: flex;
+            justify-content: center;
+        }
+
+        .block{
+            border: 1px solid;
+            padding: 20px;
+        }
+
+        .user-aside{
+            height: 100%;
+            width: 25%;
+            border-right: 1px solid;
+            padding: 8px;
+        }
+
+        .user-img{
+            width: 100px;
+            height: 100px;
+            border: 1px solid;
+        }
+
+        .user-name{
+            font-size: 24px;
+        }
+
+        .user-profile-info{
+            border-bottom: 1px solid;
+            margin-bottom: 20px;
+        }
+
+        #search{
+            height: 30px;
+            width: 90%;
+            border: 1px solid;
+        }
+
+        .user-search-item{
+            border-bottom: 1px solid;
+            padding: 5px 0;
+        }
+
+        .user-search-item:hover {
+            background: #e1e1e1;
+            cursor: pointer;
+        }
+
+        .user-search{
+            width: 50px;
+            height: 50px;
+            border: 1px solid;
+        }
+
+        .online-connections > .user-search-item:last-child{
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid;
+}
+
+.online-connections:before {
+    content: 'online connections';
+    margin-top: 10px;
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.your-connections:before {
+    content: 'Your connections';
+    margin-top: 10px;
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#after-login-page{
+    height: 100vh;
+    display: flex;
+}
+
+.user-chat-room {
+    width: 75%;
+}
+
+.chat-room-top {
+    height: 80px;
+    padding: 8px;
+    border-bottom: 1px solid;
+}
+
+.chat-room-top-user-img {
+    height: 50px;
+    width: 50px;
+    border: 1px solid;
+}
+
+.chat-room-type {
+    height: 50px;
+    border: 1px solid;
+}
+
+.chat-room-typearea {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+
+.chat-room-conv {
+    height: calc(100% - 130px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.user-chat-old {
+    height: 100%;
+}
+
+.chat-conv {
+    padding: 6px;
+}
+
+.chat-conv-my {
+    text-align: right;
+}
+
+.chat-conv:nth-child(odd) {
+    background-color: #e5e5e5;
+}
+
+.chat-conv:nth-child(even) {background-color: whitesmoke;}
+
+.user-chat-new {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+
+.send-request {
+    align-self: center;
+    padding: 9px;
+}
+    </style>
+</head>
+<body>
+    <div id="homepage" class="block-area">
+        <div class="block">
+            <h1>Sign up</h1>
+            <label>
+                email : <input type="text" name="username"/>
+            </label>
+            <br/>
+            <label>
+                password : <input type="password" name="password"/>
+            </label>
+            <br/>
+            <label>
+                re-password : <input type="password" name="re-password"/>
+            </label>
+            <br/>
+            <button class="get-in sign-up">Sign up</button>
+        </div>
+
+        <div class="block">
+            <h1>Login</h1>
+            <label>
+                email : <input type="text" name="username"/>
+            </label>
+            <br/>
+            <label>
+                password : <input type="password" name="password"/>
+            </label>
+            <br/>
+            <button class="get-in login">Login</button>
+        </div>
+    </div>
+
+    <div id="after-login-page" class="hide">
+        <aside class="user-aside">
+            <div class="user-profile-info">
+                <img src='' class="user-img"/>
+                <h3 class="user-name">Yogesh Jagdale</h3>
+            </div>
+            <div class="user-op">
+                <input type="search" name="search" id="search" placeholder="Search peoples"/>
+
+                <div class="your-connections non-search-results user-search-result">
+                    <div class="user-search-item">
+                        <img src="" class="user-search"/>
+                        <span class="user-search-name">Amit</span>
+                    </div>
+                    <div class="user-search-item">
+                        <img src="" class="user-search"/>
+                        <span class="user-search-name">Mangesh</span>
+                    </div>
+                    <div class="user-search-item">
+                        <img src="" class="user-search"/>
+                        <span class="user-search-name">Aarti</span>
+                    </div>
+                    <div class="user-search-item">
+                        <img src="" class="user-search"/>
+                        <span class="user-search-name">Yogesh</span>
+                    </div>
+                </div>
+
+                <div class="online-search-results hide">
+                    <div class="online-connections user-search-result">
+                        <div class="user-search-item">
+                            <img src="" class="user-search"/>
+                            <span class="user-search-name">Suraj</span>
+                        </div>
+                        <div class="user-search-item">
+                            <img src="" class="user-search"/>
+                            <span class="user-search-name">Vinay</span>
+                        </div>
+                    </div>
+
+                    <div class="your-connections user-search-result">
+                        <div class="user-search-item">
+                            <img src="" class="user-search"/>
+                            <span class="user-search-name">Amit</span>
+                        </div>
+                        <div class="user-search-item">
+                            <img src="" class="user-search"/>
+                            <span class="user-search-name">Mangesh</span>
+                        </div>
+                        <div class="user-search-item">
+                            <img src="" class="user-search"/>
+                            <span class="user-search-name">Aarti</span>
+                        </div>
+                        <div class="user-search-item">
+                            <img src="" class="user-search"/>
+                            <span class="user-search-name">Yogesh</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <section class="user-chat-room hide">
+            <div class="user-chat-old hide">
+                <div class="chat-room-top">
+                    <img src='' class="chat-room-top-user-img"/>
+                    <span class="chat-room-top-user-name">User's Name</span>
+                </div>
+
+                <div class="chat-room-conv">
+                    <span class="chat-conv chat-conv-my">Hello</span>
+                    <span class="chat-conv chat-conv-their">Hi</span>
+                    <span class="chat-conv chat-conv-their">What are you doing?</span>
+                    <span class="chat-conv chat-conv-my">Nothing just doing my work!</span>
+                </div>
+                
+                <div class="chat-room-type">
+                    <textarea class="chat-room-typearea"></textarea>
+                </div>
+            </div>
+
+            <div class="user-chat-new hide">
+                <button class="send-request">Send Request</button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll('.get-in')
+        buttons.forEach(el => el.addEventListener('click', function(){
+            document.querySelector('#homepage').classList.add('hide')
+            document.querySelector('#after-login-page').classList.remove('hide')
+        }))
+
+        const search = document.querySelector('#search')
+        search.addEventListener('keyup', function(e){
+            if(e.keyCode === 13){
+                const usearch = document.querySelector('.non-search-results')
+                usearch.classList.add('hide')
+
+                const uosearch = document.querySelector('.online-search-results')
+                uosearch.classList.remove('hide')
+            }
+        })
+
+        const yourConnections = document.querySelectorAll('.your-connections > .user-search-item')
+        const onlineConnections = document.querySelectorAll('.online-connections > .user-search-item')
+
+        yourConnections.forEach(el => el.addEventListener('click', function(){
+            openOldConvers()
+        }))
+
+        onlineConnections.forEach(el => el.addEventListener('click', function(){
+            const chatRoom = document.querySelector('.user-chat-room')
+            chatRoom.classList.remove('hide')
+            
+            const chatold = document.querySelector('.user-chat-old')
+            chatold.classList.add('hide')
+            
+            const chatnew = document.querySelector('.user-chat-new')
+            chatnew.classList.remove('hide')
+        }))
+
+        function openOldConvers(){
+            const chatRoom = document.querySelector('.user-chat-room')
+            chatRoom.classList.remove('hide')
+            
+            const chatold = document.querySelector('.user-chat-old')
+            chatold.classList.remove('hide')
+            
+            const chatnew = document.querySelector('.user-chat-new')
+            chatnew.classList.add('hide')
+        }
+
+        const sendrequest = document.querySelector('.send-request')
+        sendrequest.addEventListener('click', function(){
+            openOldConvers()
+        })
+    </script>
+</body>
+</html>
