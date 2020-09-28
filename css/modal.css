@@ -1,0 +1,45 @@
+.app-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(3px);
+    background-color: #ffffff5c;
+    z-index: 999;
+    display: none;
+}
+
+.app-modal-wrapper {
+    width: 500px;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 0 5px #00000042;
+}
+
+.app-modal-top {
+    padding: 15px;
+}
+
+.app-modal-title {
+    font-weight: 500;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.app-modal-content{
+    padding: 15px;
+}
+
+.app-modal-close svg {
+    width: 20px;
+    height: 20px;
+    padding: 3px;
+}
+
+.app-modal-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}

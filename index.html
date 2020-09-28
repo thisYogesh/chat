@@ -8,7 +8,7 @@
 </head>
 <body>
     <section class="app">
-        <aside class="app-side-main">
+        <aside class="app-side-main --select-white-black">
             <div class="app-main-wrapper">
                 <div class="main-top">
                     <h3 class="main-copy">Chatbase</h3>
@@ -32,7 +32,7 @@
                     </div>
                 </div>
 
-                <div class="main-search">
+                <div class="main-search search-bar">
                     <div class="main-search-wrapper">
                         <svg class="main-search-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <path fill="currentColor" d="M508.5 481.6l-129-129c-2.3-2.3-5.3-3.5-8.5-3.5h-10.3C395 312 416 262.5 416 208 416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c54.5 0 104-21 141.1-55.2V371c0 3.2 1.3 6.2 3.5 8.5l129 129c4.7 4.7 12.3 4.7 17 0l9.9-9.9c4.7-4.7 4.7-12.3 0-17zM208 384c-97.3 0-176-78.7-176-176S110.7 32 208 32s176 78.7 176 176-78.7 176-176 176z" class=""></path>
@@ -54,7 +54,7 @@
                             </div>
                             <i class="main-user-badge-unread">2</i>
                         </div>
-                        <div class="main-user-item">
+                        <div class="main-user-item --active-user">
                             <picture class="main-user-profile">
                                 <img src="./images/girl2.jpg" class="main-user-img"/>
                                 <i class="main-user-status --user-offline"></i>
@@ -93,8 +93,155 @@
             </div>
         </aside>
         <main class="app-main">
-            <div class="app-main-area"></div>
+            <div class="app-main-area-wrapper">
+                <div class="app-main-area">
+                    <div class="app-main-top">
+                        <span class="app-main-status --user-online"></span>
+                        <span class="app-main-name">Yogesh Jagdale</span>
+                    </div>
+    
+                    <div class="app-main-conv">
+                        <div class="user-chat-history">
+                            <div class="user-chat-item user-chat-my">
+                                <picture class="user-chat-profile">
+                                    <img class="user-chat-img" src="./images/girl1.jpg"/>
+                                    <time class="user-chat-time">10:30AM</time>
+                                </picture>
+                                <span class="user-chat-messege">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ligula sapien, porttitor eget arcu non.</span>
+                            </div>
+    
+                            <div class="user-chat-item user-chat-their">
+                                <picture class="user-chat-profile">
+                                    <img class="user-chat-img" src="./images/male1.jpg"/>
+                                    <time class="user-chat-time">10:32AM</time>
+                                </picture>
+                                <span class="user-chat-messege --select-white-black">
+                                    Pellentesque nisl libero, auctor eget semper id, viverra sed velit. Mauris at quam dapibus, interdum dolor eu, rutrum eros. 
+                                    Phasellus ornare, purus nec feugiat facilisis, justo massa lacinia tellus, vitae volutpat ante risus vel odio. 
+                                    Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                                </span>
+                            </div>
+
+                            <div class="user-chat-item user-chat-my">
+                                <picture class="user-chat-profile">
+                                    <img class="user-chat-img" src="./images/girl1.jpg"/>
+                                    <time class="user-chat-time">10:30AM</time>
+                                </picture>
+                                <span class="user-chat-messege">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                            </div>
+
+                            <div class="user-chat-item user-chat-my">
+                                <picture class="user-chat-profile">
+                                    <img class="user-chat-img" src="./images/girl1.jpg"/>
+                                    <time class="user-chat-time">10:30AM</time>
+                                </picture>
+                                <span class="user-chat-messege">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ligula sapien, porttitor eget arcu non.</span>
+                            </div>
+
+                            <div class="user-chat-item user-chat-their">
+                                <picture class="user-chat-profile">
+                                    <img class="user-chat-img" src="./images/male1.jpg"/>
+                                    <time class="user-chat-time">10:32AM</time>
+                                </picture>
+                                <span class="user-chat-messege --select-white-black">
+                                    Pellentesque nisl libero, auctor eget semper id, viverra sed velit. Mauris at quam dapibus, interdum dolor eu, rutrum eros. 
+                                    Phasellus ornare, purus nec feugiat facilisis, justo massa lacinia tellus, vitae volutpat ante risus vel odio. 
+                                    Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="app-main-write">
+                        <div class="app-writer">
+                            <textarea class="app-input" placeholder="Type your message here..."></textarea>
+                            <button class="icon-button icon-button-send">
+                                <svg class="icon-button-svg" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-reply fa-w-18 fa-9x">
+                                    <path fill="currentColor" d="M11.093 251.65l175.998 184C211.81 461.494 256 444.239 256 408v-87.84c154.425 1.812 219.063 16.728 181.19 151.091-8.341 29.518 25.447 52.232 49.68 34.51C520.16 481.421 576 426.17 576 331.19c0-171.087-154.548-201.035-320-203.02V40.016c0-36.27-44.216-53.466-68.91-27.65L11.093 196.35c-14.791 15.47-14.791 39.83 0 55.3zm23.127-33.18l176-184C215.149 29.31 224 32.738 224 40v120c157.114 0 320 11.18 320 171.19 0 74.4-40 122.17-76.02 148.51C519.313 297.707 395.396 288 224 288v120c0 7.26-8.847 10.69-13.78 5.53l-176-184a7.978 7.978 0 0 1 0-11.06z" class=""></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-main-profile">
+                    <div class="app-profile-wrapper">
+                        <button class="icon-button icon-button-close-profile">
+                            <svg class="icon-button-svg" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                <path fill="currentColor" d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z" class=""></path>
+                            </svg>
+                        </button>
+
+                        <div class="app-profile-block">
+                            <picture class="app-profile-picture">
+                                <img class="app-profile-img" src="./images/male2.jpg"/>
+                            </picture>
+
+                            <div class="app-profile-desc">
+                                <div class="profile-desc app-profile-name">Yogesh Jagdale</div>
+                                <div class="profile-desc app-profile-job">Frontend Developer</div>
+                                <div class="profile-desc app-profile-quote">Pellentesque nisl libero, auctor eget semper id</div>
+                            </div>
+                            
+                            <div class="app-profile-info">
+                                <div class="profile-info app-profile-loc">
+                                    <figure class="info-icon-wraper">
+                                        <svg class="profile-info-icon profile-loc-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                            <path fill="currentColor" d="M192 96c-52.935 0-96 43.065-96 96s43.065 96 96 96 96-43.065 96-96-43.065-96-96-96zm0 160c-35.29 0-64-28.71-64-64s28.71-64 64-64 64 28.71 64 64-28.71 64-64 64zm0-256C85.961 0 0 85.961 0 192c0 77.413 26.97 99.031 172.268 309.67 9.534 13.772 29.929 13.774 39.465 0C357.03 291.031 384 269.413 384 192 384 85.961 298.039 0 192 0zm0 473.931C52.705 272.488 32 256.494 32 192c0-42.738 16.643-82.917 46.863-113.137S149.262 32 192 32s82.917 16.643 113.137 46.863S352 149.262 352 192c0 64.49-20.692 80.47-160 281.931z" class=""></path>
+                                        </svg>
+                                    </figure>
+                                    
+                                    <span class="profile-info-value profile-loc">Choodasandra, Bengaluru, India.</span>
+                                </div>
+
+                                <div class="profile-info app-profile-phone">
+                                    <figure class="info-icon-wraper">
+                                        <svg class="profile-info-icon profile-phone-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                            <path fill="currentColor" d="M192 416c0 17.7-14.3 32-32 32s-32-14.3-32-32 14.3-32 32-32 32 14.3 32 32zm32-320H96v240h128V96m20-32c6.6 0 12 5.4 12 12v280c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12V76c0-6.6 5.4-12 12-12h168zm76-16v416c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V48C0 21.5 21.5 0 48 0h224c26.5 0 48 21.5 48 48zm-32 0c0-8.8-7.2-16-16-16H48c-8.8 0-16 7.2-16 16v416c0 8.8 7.2 16 16 16h224c8.8 0 16-7.2 16-16V48z" class=""></path>
+                                        </svg>
+                                    </figure>
+                                    
+                                    <span class="profile-info-value profile-phone">+91-97023-69491</span>
+                                </div>
+
+                                <div class="profile-info app-profile-email">
+                                    <figure class="info-icon-wraper">
+                                        <svg class="profile-info-icon profile-email-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                            <path fill="currentColor" d="M464 64H48C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h416c8.8 0 16 7.2 16 16v41.4c-21.9 18.5-53.2 44-150.6 121.3-16.9 13.4-50.2 45.7-73.4 45.3-23.2.4-56.6-31.9-73.4-45.3C85.2 197.4 53.9 171.9 32 153.4V112c0-8.8 7.2-16 16-16zm416 320H48c-8.8 0-16-7.2-16-16V195c22.8 18.7 58.8 47.6 130.7 104.7 20.5 16.4 56.7 52.5 93.3 52.3 36.4.3 72.3-35.5 93.3-52.3 71.9-57.1 107.9-86 130.7-104.7v205c0 8.8-7.2 16-16 16z" class=""></path>
+                                        </svg>
+                                    </figure>
+                                    
+                                    <span class="profile-info-value profile-email">yog99mail@gmail.com</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
+    </section>
+
+    <section class="app-modal">
+        <div class="app-modal-wrapper pos-fix trans-cm">
+            <div class="pos-rel app-modal-top">
+                <h2 class="app-modal-title">Search Peoples..</h2>
+                <button class="icon-button app-modal-close">
+                    <svg class="icon-button-svg" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                        <path fill="currentColor" d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z" class=""></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="app-modal-content">
+                <div class="main-search main-search--black main-search--bordered search-peoples">
+                    <div class="main-search-wrapper">
+                        <svg class="main-search-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path fill="currentColor" d="M508.5 481.6l-129-129c-2.3-2.3-5.3-3.5-8.5-3.5h-10.3C395 312 416 262.5 416 208 416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c54.5 0 104-21 141.1-55.2V371c0 3.2 1.3 6.2 3.5 8.5l129 129c4.7 4.7 12.3 4.7 17 0l9.9-9.9c4.7-4.7 4.7-12.3 0-17zM208 384c-97.3 0-176-78.7-176-176S110.7 32 208 32s176 78.7 176 176-78.7 176-176 176z" class=""></path>
+                        </svg>
+                        <input class="main-search-input" type="text" placeholder="Search Here..."/>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 </body>
 </html>
