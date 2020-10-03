@@ -1,0 +1,22 @@
+@media only screen and (min-width: 1100px){
+    .app-main-area-wrapper.--open-profile > .app-main-area {
+        width: 75%;
+    }
+    
+    .app-main-area-wrapper.--open-profile > .app-main-profile {
+        right: 0;
+        box-shadow: -1px 0px 5px #0000004a;
+        min-width: auto;
+    }
+
+    .app-main-profile {
+        right: -25%;
+        min-width: auto;
+    }
+}
+
+@media only screen and (min-width: 1100px){
+    .user-chat-messege {
+        max-width: 45%;
+    }
+}

@@ -1,0 +1,80 @@
+.app-auth {
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.app-brand-name {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 2em;
+    text-align: center;
+    color: #bbbbbb;
+    text-shadow: 0px 1px 0px #fbfbfb;
+}
+
+.app-brand{
+    width: 100%;
+    margin-top: -70px;
+}
+
+.app-auth-signin {
+    /* margin-top: 50px; */
+}
+
+.app-form-head {
+    background-color: #007aff;
+    color: #fff;
+    text-align: center;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 8px;
+}
+
+.app-form-title {
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 1.5em;
+}
+
+.app-form {
+    background-color: #fff;
+    padding: 25px;
+    margin: 0 7px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 0px -1px #d6d6d6, 0 9px 0px -3px #b5b5b5, 0 13px 0px -5px #949494;
+}
+
+.app-form-row {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.app-form-label {
+    font-size: 15px;
+    color: #545454;
+    min-width: 100px;
+    align-self: center;
+    font-weight: 500;
+}
+
+.form-input {
+    width: 300px;
+}
+
+.app-form-controls {
+    margin-left: 100px;
+    margin-top: 30px;
+}
+
+.auth-sign-bottom {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 15px;
+    color: #5f5f5f;
+}
+
+.auth-sign-bottom a {
+    color: #000;
+    text-decoration: underline;
+    cursor: pointer;
+}

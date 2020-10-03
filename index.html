@@ -8,7 +8,77 @@
 </head>
 <body>
     <section class="app">
-        <aside class="app-side-main --select-white-black">
+        <section class="app-auth">
+            <div class="app-auth-wrapper pos-rel trans-cm">
+                <div class="app-brand pos-abs">
+                    <h2 class="app-brand-name">Chatbase</h2>
+                </div>
+                <div class="app-auth-signin">
+                    <div class="auth-signin">
+                        <div class="app-form-head">
+                            <h3 class="app-form-title">Sign In</h3>
+                        </div>
+                        <div class="app-form">
+                            <div class="app-form-row">
+                                <label class="app-form-label">Username</label>
+                                <input type="text" class="form-input app-form-input"/>
+                            </div>
+                            <div class="app-form-row">
+                                <label class="app-form-label">Password</label>
+                                <input type="password" class="form-input app-form-input"/>
+                            </div>
+                            <div class="app-form-controls">
+                                <div class="app-button-wrapper">
+                                    <button class="app-button app-button--primary">Login</button>
+                                    <button class="app-button app-button--secondary">Sign Up</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="auth-sign-bottom">
+                        Don't have account? <a class="auth-open-su-form">Create account!</a>
+                    </p>
+                </div>
+
+                <div class="app-auth-up hide">
+                    <div class="auth-up">
+                        <div class="app-form-head">
+                            <h3 class="app-form-title">Create Account</h3>
+                        </div>
+                        <div class="app-form">
+                            <div class="app-form-row">
+                                <label class="app-form-label">Name</label>
+                                <input type="text" class="form-input app-form-input"/>
+                            </div>
+                            <div class="app-form-row">
+                                <label class="app-form-label">Username</label>
+                                <input type="text" class="form-input app-form-input"/>
+                            </div>
+                            <div class="app-form-row">
+                                <label class="app-form-label">Password</label>
+                                <input type="password" class="form-input app-form-input"/>
+                            </div>
+                            <div class="app-form-row">
+                                <label class="app-form-label">Re-Password</label>
+                                <input type="password" class="form-input app-form-input"/>
+                            </div>
+                            <div class="app-form-controls">
+                                <div class="app-button-wrapper">
+                                    <button class="app-button app-button--primary">Sign Up</button>
+                                    <button class="app-button app-button--secondary">Clear</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="auth-sign-bottom">
+                        Already have account? <a class="auth-open-si-form">Login here!</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <aside class="hide app-side-main --select-white-black">
             <div class="app-main-wrapper">
                 <div class="main-top">
                     <h3 class="main-copy">Chatbase</h3>
@@ -92,7 +162,7 @@
                 </div>
             </div>
         </aside>
-        <main class="app-main">
+        <main class="hide app-main">
             <div class="app-main-area-wrapper">
                 <div class="app-main-area">
                     <div class="app-main-top">

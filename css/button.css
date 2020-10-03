@@ -1,0 +1,31 @@
+.app-button {
+    padding: 0 10px;
+    height: 35px;
+    font-size: 16px;
+    min-width: 100px;
+    letter-spacing: .5px;
+    font-weight: 500;
+    font-family: Roboto;
+    border-radius: 3px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.app-button--primary{
+    background-color: #007aff;
+    border: 1px solid #005bbd;
+    color: #fff;
+}
+
+.app-button--secondary {
+    background-color: #fff;
+    color: #676767;
+}
+
+.app-button--secondary:hover{
+    box-shadow: 0 0 4px #00000047;
+}
+
+.app-button-wrapper {
+    margin: 0 -10px;
+}
