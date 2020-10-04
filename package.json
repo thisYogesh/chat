@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "mysql": "^2.18.1",
+    "requester": "git+https://github.com/thisYogesh/request.git",
     "ws": "^7.3.1"
   }
 }
