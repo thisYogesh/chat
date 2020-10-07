@@ -1,80 +1,91 @@
 .app-auth {
-    height: 100vh;
-    margin: 0 auto;
+  height: 100vh;
+  margin: 0 auto;
 }
 
 .app-brand-name {
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 2em;
-    text-align: center;
-    color: #bbbbbb;
-    text-shadow: 0px 1px 0px #fbfbfb;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 2em;
+  text-align: center;
+  color: #ffffff;
 }
 
-.app-brand{
-    width: 100%;
-    margin-top: -70px;
+.app-brand {
+  width: 100%;
+  margin-top: -70px;
 }
 
-.app-auth-signin {
-    /* margin-top: 50px; */
+.app-auth-sign-form {
+  margin-top: 50px;
+  background-color: #fff;
+  padding: 25px 0;
+  border-radius: 16px;
+  box-shadow: 0px 14px 23px #00000045;
 }
 
 .app-form-head {
-    background-color: #007aff;
-    color: #fff;
-    text-align: center;
-    height: 80px;
-    line-height: 80px;
-    border-radius: 8px;
+  border-radius: 8px;
+  padding: 0 25px 25px 25px;
 }
 
 .app-form-title {
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-size: 1.5em;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  font-size: 2.5em;
+  color: #0165d2;
 }
 
 .app-form {
-    background-color: #fff;
-    padding: 25px;
-    margin: 0 7px;
-    border-radius: 0 0 8px 8px;
-    box-shadow: 0 4px 0px -1px #d6d6d6, 0 9px 0px -3px #b5b5b5, 0 13px 0px -5px #949494;
+  padding: 25px;
+  border-radius: 0 0 8px 8px;
 }
 
 .app-form-row {
-    display: flex;
-    margin-bottom: 20px;
+  display: flex;
+  margin-bottom: 36px;
+  position: relative;
+  flex-wrap: wrap;
+  min-width: 300px;
+}
+
+.app-form-fp {
+  font-size: 13px;
+  width: 100%;
+  text-align: right;
+  margin-top: 8px;
 }
 
 .app-form-label {
-    font-size: 15px;
-    color: #545454;
-    min-width: 100px;
-    align-self: center;
-    font-weight: 500;
+  font-size: 14px;
+  color: #828282;
+  min-width: 100px;
+  align-self: center;
+  font-weight: 400;
+  position: absolute;
+  margin-left: 18px;
+  transition: all 0.2s ease;
+  top: 12px;
+  left: 0;
 }
 
 .form-input {
-    width: 300px;
+  /* width: 300px; */
+}
+
+.form-input:focus + label {
+  top: -23px;
+  left: -17px;
+  color: #4d4d4d;
 }
 
 .app-form-controls {
-    margin-left: 100px;
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .auth-sign-bottom {
-    text-align: center;
-    margin-top: 25px;
-    font-size: 15px;
-    color: #5f5f5f;
-}
-
-.auth-sign-bottom a {
-    color: #000;
-    text-decoration: underline;
-    cursor: pointer;
+  text-align: center;
+  margin-top: 25px;
+  font-size: 15px;
+  color: #5f5f5f;
 }

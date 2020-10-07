@@ -1,0 +1,24 @@
+.--effect-wave-bg {
+  position: relative;
+}
+
+.--effect-wave-bg:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 40%;
+  width: 100%;
+  background-color: #007aff;
+  z-index: -1;
+}
+
+.--effect-wave-bg:after {
+  position: absolute;
+  content: url("../images/wave.svg");
+  left: 0;
+  top: calc(40% - 6px);
+  width: 100%;
+  z-index: -1;
+  transform: rotate(180deg);
+}
