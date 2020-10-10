@@ -1,27 +1,24 @@
-const http = require('http')
-const server = http.createServer(function(req, res){
-    res.setHeader('content-type', 'text/html')
-    res.end(`
-        <h1>Hello Yogesh!!</h1>
-        <div class='time'></div>
+const request = require('requester')
+const db = require('./js/db')
 
-        <script>
-            // use 'wss' in case of https
-            var HOST = location.origin.replace(/^http/, 'ws')
-            var ws = new WebSocket(HOST);
-            var el;
-
-            ws.onmessage = function (event) {
-                el = document.querySelector('.time')
-                el.innerHTML = event.data;
-            };
-        </script>
-    `)
-});
-
-const PORT = process.env.PORT || 3000
-server.listen(PORT, function(){
-    console.log('Server is listening on PORT ' + PORT)
+request.post('/create-user', function(req, res, { payload }){
+    res.setHeader('Content-Type', 'application/json')
+    
+    db
+    .create('users', JSON.parse(payload))
+    .then(resp => {
+        console.log('User added!')
+        res.end(JSON.stringify({
+            done: true
+        }))
+    })
+    .catch(error => {
+        console.log('Unable to add user!')
+        res.end(JSON.stringify({
+            done: false
+        }))
+    })
 })
 
-const ws = new require('./ws')(server)
+db.init()
+request.port(8080)
