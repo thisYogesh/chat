@@ -52,7 +52,7 @@ readable-stream@2.3.7:
 
 "requester@git+https://github.com/thisYogesh/request.git":
   version "1.0.0"
-  resolved "git+https://github.com/thisYogesh/request.git#c1367974dab591d05c9a4f6a027178216c8f5355"
+  resolved "git+https://github.com/thisYogesh/request.git#da3f5af53e9b59270265fe7e7d4ea525ff490844"
 
 safe-buffer@5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
