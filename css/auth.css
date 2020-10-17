@@ -160,7 +160,6 @@
 }
 
 .main-crop-scope {
-  background-image: url(../images/crop.jpg);
   position: absolute;
   background-repeat: no-repeat;
   background-color: white;
@@ -168,5 +167,5 @@
   box-shadow: 0 0 10px #0000002e inset;
   user-select: none;
   cursor: move;
-  transition: all .2s cubic-bezier(0.25, 0.1, 0, 0.87);
+  transition: all .1s cubic-bezier(0.25, 0.1, 0, 0.87);
 }

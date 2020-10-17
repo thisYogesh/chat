@@ -11,10 +11,11 @@ icrop.prototype.setEvents = function(){
     const _this = this
     const cropScope = this.$cropScope
     this.$parentEl.addEventListener('wheel', function(e){
+        e.preventDefault()
         if(e.deltaY > 0){
-            _this.zoomIn()
+            _this.zoomIn(e)
         }else{
-            _this.zoomOut()
+            _this.zoomOut(e)
         }
     })
 
@@ -30,24 +31,33 @@ icrop.prototype.setEvents = function(){
     cropScope.addEventListener('mousemove', function(e){
         if(isdown){
             window.requestAnimationFrame(function(){
-                const scopeSize = _this._scopeSize
-                const parent = _this.$parentEl
-                const pos = parent.getBoundingClientRect()
-                const x = e.pageX - pos.x
-                const y = e.pageY - pos.y
-
-                _this.setScopePosition(cropScope, x - scopeSize / 2, y - scopeSize / 2)
+                const pos = _this.calcPosition(e)
+                _this.setScopePosition(cropScope, pos.left, pos.top)
             })
         }
     })
 }
 
-icrop.prototype.zoomIn = function(){
-
+icrop.prototype.zoomIn = function(e){
+    const pos = this.calcPosition(e)
+    const size = this._scopeSize - 5
+    this.setScope(size, pos.left, pos.top)
 }
 
-icrop.prototype.zoomOut = function(){
-    
+icrop.prototype.zoomOut = function(e){
+    const pos = this.calcPosition(e)
+    const size = this._scopeSize + 5
+    this.setScope(size, pos.left, pos.top)
+}
+
+icrop.prototype.calcPosition = function(e){
+    const s = this._scopeSize / 2
+    const pos = this.$parentEl.getBoundingClientRect()
+
+    return {
+        left: (e.pageX - pos.x) - s,
+        top: (e.pageY - pos.y) - s
+    }
 }
 
 icrop.prototype.createScope = function(){
@@ -59,19 +69,34 @@ icrop.prototype.createScope = function(){
     // initial cropScope size
     const scopeSize = 200
     this._scopeSize = scopeSize
-
-    cropScope.style.width = `${scopeSize}px`
-    cropScope.style.height = `${scopeSize}px`
+    this._smallScopeSize = 70
+    this._largerScopeSize = 200
 
     // set initial scope position
     const w = img.clientWidth
     const h = img.clientHeight
-    const l = (w/2 - cropScope.clientWidth/2)
-    const t = (h/2 - cropScope.clientHeight/2)
+    const dv = scopeSize/2
+    const l = (w/2 - dv)
+    const t = (h/2 - dv)
+
+    this.setScope(scopeSize, l, t)
+    cropScope.style.backgroundSize = `${w}px ${h}px`
+}
+
+icrop.prototype.setScope = function(size, l, t){
+    // set crop size
+    const cropScope = this.$cropScope
+    this._scopeSize = size
+
+    // set size limit
+    if(size > this._largerScopeSize) this._scopeSize = this._largerScopeSize
+    else if(size < this._smallScopeSize) this._scopeSize = this._smallScopeSize
+    else this._scopeSize = size
+
+    cropScope.style.width = `${this._scopeSize}px`
+    cropScope.style.height = `${this._scopeSize}px`
 
     this.setScopePosition(cropScope, l, t)
-
-    cropScope.style.backgroundSize = `${w}px ${h}px`
 }
 
 icrop.prototype.setOrientation = function(){
