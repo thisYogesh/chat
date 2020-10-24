@@ -1,8 +1,8 @@
 function icrop(img){
+    this._lockScope = false
     this.$parentEl = img.parentNode
     this.$img = img
-    
-    this.setOrientation()
+
     this.createScope()
     this.setEvents()
 }
@@ -12,11 +12,9 @@ icrop.prototype.setEvents = function(){
     const cropScope = this.$cropScope
     this.$parentEl.addEventListener('wheel', function(e){
         e.preventDefault()
-        if(e.deltaY > 0){
-            _this.zoomIn(e)
-        }else{
-            _this.zoomOut(e)
-        }
+
+        if(e.deltaY > 0)_this.zoomIn(e)
+        else _this.zoomOut(e)
     })
 
     let isdown = false
@@ -62,7 +60,7 @@ icrop.prototype.calcPosition = function(e){
 
 icrop.prototype.createScope = function(){
     const img = this.$img
-    const cropScope = $.toDOM(`<div class="main-crop-scope" style="background-image: url('${img.src}')"></div>`)
+    const cropScope = $.toDOM(`<div class="main-crop-scope --fast-transition" style="background-image: url('${img.src}')"></div>`)
     this.$cropScope = cropScope
     this.$parentEl.append(cropScope);
 
@@ -78,9 +76,27 @@ icrop.prototype.createScope = function(){
     const dv = scopeSize/2
     const l = (w/2 - dv)
     const t = (h/2 - dv)
+    this._cropArea = { width: w, height: h }
 
     this.setScope(scopeSize, l, t)
     cropScope.style.backgroundSize = `${w}px ${h}px`
+}
+
+icrop.prototype.alignScopeInCenter = function(){
+    // lock scope movement
+    this._lockScope = true
+    
+    const cropArea = this._cropArea
+    const dv = this._scopeSize/2
+    const l = (cropArea.width/2 - dv)
+    const t = (cropArea.height/2 - dv)
+
+    const cropScope = this.$cropScope.classList
+    cropScope.remove('--fast-transition')
+    cropScope.add('--slow-transition')
+    this.$parentEl.classList.add('--white-bg')
+    
+    this.setScopePosition(this.$cropScope, l, t)
 }
 
 icrop.prototype.setScope = function(size, l, t){
@@ -124,11 +140,52 @@ icrop.prototype.setOrientation = function(){
 }
 
 icrop.prototype.setScopePosition = function(el, x, y){
+    const cropArea = this._cropArea
+
     if(x < 0) x = 0
+    else if(x + this._scopeSize > cropArea.width){
+        x = cropArea.width - this._scopeSize
+    }
+
     if(y < 0) y = 0
+    else if(y + this._scopeSize > cropArea.height){
+        y = cropArea.height - this._scopeSize
+    }
 
     el.style.left = x + 'px'
     el.style.top = y + 'px'
 
-    el.style.backgroundPosition = `${-x}px ${-y}px`
+    if(!this._lockScope) el.style.backgroundPosition = `${-x}px ${-y}px`
+}
+
+icrop.prototype.getCropData = function(){
+    const canvas = document.createElement('canvas');
+    const croppedData = this.$cropScope.style
+
+    const width = this._cropArea.width
+    const height = this._cropArea.height
+
+    canvas.width = width
+    canvas.height = height
+
+    const cx = canvas.getContext('2d')
+    cx.drawImage(this.$img, 0, 0, width, height)
+
+    const left = parseFloat(croppedData.left)
+    const top = parseFloat(croppedData.top)
+    const size = this._scopeSize
+    const idata = cx.getImageData(left, top, size, size)
+
+    // generating image
+    cx.clearRect(0, 0, width, height)
+    canvas.width = canvas.height = size
+    cx.putImageData(idata, 0, 0)
+    
+    return canvas.toDataURL();
+}
+
+icrop.prototype.destroy = function(){
+    this.$img.remove();
+    this.$cropScope.remove()
+    this.$parentEl.classList.remove('--white-bg')
 }
